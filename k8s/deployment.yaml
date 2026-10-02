@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dugi-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dugi-demo
+  template:
+    metadata:
+      labels:
+        app: dugi-demo
+    spec:
+      containers:
+        - name: dugi-demo
+          image: nginx:1.27-alpine
+          ports:
+            - containerPort: 80
