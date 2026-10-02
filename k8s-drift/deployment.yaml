@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dugi-demo-drift
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dugi-demo-drift
+  template:
+    metadata:
+      labels:
+        app: dugi-demo-drift
+    spec:
+      containers:
+        - name: dugi-demo-drift
+          image: nginx:1.27-alpine
+          ports:
+            - containerPort: 80
